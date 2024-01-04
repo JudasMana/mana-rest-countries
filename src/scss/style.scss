@@ -1,0 +1,68 @@
+:root[mode="dark"] {
+  --background-color: hsl(207, 26%, 17%);
+  --text-color: hsl(0, 0%, 100%);
+  --input-text-color: hsl(0, 0%, 100%);
+  --element-color: hsl(209, 23%, 22%);
+}
+
+:root[mode="light"] {
+  --background-color: hsl(0, 0%, 98%);
+  --text-color: hsl(200, 15%, 8%);
+  --input-text-color: hsl(0, 0%, 52%);
+  --element-color: hsl(0, 0%, 100%);
+}
+
+$background-color: var(--background-color);
+$text-color: var(--text-color);
+$input-text-color: var(--input-text-color);
+$element-color: var(--element-color);
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap");
+
+* {
+  color: $text-color;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  background-color: $background-color;
+}
+
+header {
+  background-color: $element-color;
+}
+
+.search__bar {
+  background-color: $element-color;
+
+  &::placeholder {
+    color: $input-text-color;
+    opacity: 0.8;
+  }
+}
+
+.filter {
+  background-color: $element-color;
+
+  .filter__text,
+  .arrow {
+    opacity: 0.7;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .filter__text,
+    .arrow {
+      opacity: 1;
+    }
+  }
+}
+
+.options {
+  background-color: $element-color;
+}
+
+.card {
+  background-color: $element-color;
+}
