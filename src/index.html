@@ -6,6 +6,7 @@
     <title>Country info</title>
     <link rel="stylesheet" href="./css/output.css" />
     <link rel="stylesheet" href="./scss/style.scss" />
+    <script defer type="module" src="./js/controller.js"></script>
   </head>
   <body class="flex flex-col items-center h-full">
     <header class="grid w-full place-items-center">
@@ -17,260 +18,78 @@
           <img
             src="../assets/icons/moon.svg"
             alt=""
-            class="w-4 brightness-0 dark:invert"
+            class="w-4 brightness-0 icon"
           />
           <p class="text-xs mode__selected lg:text-sm">Dark Mode</p>
         </div>
       </div>
     </header>
-    <main class="flex flex-col items-center w-[90%] max-w-[1200px] h-full">
-      <div
-        class="flex flex-col items-center justify-center w-full gap-10 mt-6 lg:flex-row lg:mb-8t"
-      >
-        <div class="relative w-full search">
-          <input
+    <main class="w-[90%] max-w-[1200px]">
+      <!--
+        <section class="flex flex-col items-center w-full h-full">
+          <div
+          class="flex flex-col items-center justify-center w-full gap-10 mt-6 lg:flex-row lg:mb-8t"
+          >
+          <div class="relative w-full search">
+            <input
             placeholder="Search for a country..."
             type="text"
             class="w-full h-12 pl-16 text-xs lg:text-sm rounded lg:w-[29rem] search__bar"
-          />
-          <img
+            />
+            <img
             src="../assets/icons/search.svg"
             alt=""
-            class="absolute top-0 bottom-0 w-6 my-auto brightness-0 dark:invert left-6"
-          />
-        </div>
-        <div
-          class="relative w-full mb-8 lg:mb-0 lg:w-min filter__container h-14"
-        >
-          <div
-            class="flex items-center justify-between h-full pl-6 pr-4 rounded filter w-52 lg:w-48"
-          >
-            <p class="text-xs filter__text lg:text-sm">Filter by Region</p>
-            <img
-              src="../assets/icons/down-arrow.svg"
-              alt=""
-              class="w-4 lg:w-5 arrow dark:invert"
+            class="absolute top-0 bottom-0 w-6 my-auto brightness-0 left-6 icon"
             />
           </div>
-          <ul
-            class="absolute left-0 hidden py-4 pl-6 my-1 space-y-2 text-xs list-none rounded lg:text-sm options w-52 lg:w-48"
+          <div
+          class="relative w-full mb-8 lg:mb-0 lg:w-min filter__container h-14"
           >
-            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-              Africa
-            </li>
-            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-              America
-            </li>
-            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-              Asia
-            </li>
-            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-              Europe
-            </li>
-            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-              Oceania
-            </li>
-          </ul>
-        </div>
-      </div>
-      <section
-        class="flex flex-wrap items-center justify-around w-full py-10 lg:justify-between card__container gap-y-10"
-      >
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
+          <div
+          class="flex items-center justify-between h-full pl-6 pr-4 rounded filter w-52 lg:w-48"
+          >
+          <p class="text-xs filter__text lg:text-sm">Filter by Region</p>
           <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
+                src="../assets/icons/down-arrow.svg"
+                alt=""
+                class="w-4 lg:w-5 arrow icon"
+                />
+              </div>
+              <ul
+              class="absolute left-0 hidden py-4 pl-6 my-1 space-y-2 text-xs list-none rounded lg:text-sm options w-52 lg:w-48"
+              >
+              <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+                Africa
               </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
+              <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+                America
               </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
+              <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+                Asia
+              </li>
+              <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+                Europe
+              </li>
+              <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+                Oceania
               </li>
             </ul>
           </div>
         </div>
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
-          <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
-              </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
-              </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
-          <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
-              </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
-              </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
-          <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
-              </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
-              </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
-          <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
-              </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
-              </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
-          <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
-              </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
-              </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
-          <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
-              </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
-              </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
-        >
-          <img
-            src="../assets/imgs/germany.png"
-            alt=""
-            class="flag w-full aspect-[16/10]"
-          />
-          <div class="pt-6 pb-10 pl-6 card__body">
-            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
-            <ul class="card__info list-none space-y-1.5">
-              <li class="text-sm population">
-                Population: <span class="data opacity-70">81,770,900</span>
-              </li>
-              <li class="text-sm region">
-                Region: <span class="data opacity-70">Europe</span>
-              </li>
-              <li class="text-sm capital">
-                Capital: <span class="data opacity-70">Berlin</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <section
+          class="flex flex-wrap items-center justify-around w-full py-10 lg:justify-between card__container gap-y-10"
+        ></section>
       </section>
-    </main>
-    <!--
-    <section class="flex results flex-col w-[90%]">
-      <div
-        class="flex items-center justify-center h-8 gap-2 mt-10 rounded-sm hover:cursor-pointer w-28 back__button"
-      >
-        <img
+    -->
+      <!--
+        <section class="flex flex-col w-full results">
+          <div
+          class="flex items-center justify-center h-8 gap-2 mt-10 rounded-sm hover:cursor-pointer w-28 back__button"
+          >
+          <img
           src="../assets/icons/back-arrow.svg"
           alt=""
-          class="h-5 arrow__back brightness-0 dark:invert"
+          class="h-5 arrow__back brightness-0 icon"
         />
         <p class="text-sm opacity-70">Back</p>
       </div>
@@ -378,6 +197,6 @@
         </div>
       </div>
     </section>
-    -->
+    --></main>
   </body>
 </html>

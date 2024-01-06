@@ -100,3 +100,7 @@ header {
   background-color: $element-color;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.329);
 }
+
+.dark__icon {
+  filter: brightness(0) invert(100);
+}
