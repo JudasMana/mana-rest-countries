@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" mode="dark">
+<html lang="en" mode="dark" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,244 +7,254 @@
     <link rel="stylesheet" href="./css/output.css" />
     <link rel="stylesheet" href="./scss/style.scss" />
   </head>
-  <body class="flex flex-col items-center">
-    <header class="w-full flex items-center justify-between py-6 px-4">
-      <p class="where font-bold text-sm">Where in the world?</p>
-      <div class="mode flex gap-2 items-center hover:cursor-pointer">
-        <img
-          src="../assets/icons/moon.svg"
-          alt=""
-          class="brightness-0 dark:invert w-4"
-        />
-        <p class="mode__selected text-xs">Dark Mode</p>
+  <body class="flex flex-col items-center h-full">
+    <header class="grid w-full place-items-center">
+      <div
+        class="header__container flex w-[95%] md:w-[90%] max-w-[1200px] justify-between items-center py-8"
+      >
+        <p class="text-sm font-bold where lg:text-xl">Where in the world?</p>
+        <div class="flex items-center gap-2 mode hover:cursor-pointer">
+          <img
+            src="../assets/icons/moon.svg"
+            alt=""
+            class="w-4 brightness-0 dark:invert"
+          />
+          <p class="text-xs mode__selected lg:text-sm">Dark Mode</p>
+        </div>
       </div>
     </header>
-    <main class="w-full flex flex-col items-center">
-      <div class="search relative w-[90%] my-6">
-        <input
-          placeholder="Search for a country..."
-          type="text"
-          class="search__bar w-full h-12 rounded pl-16 text-xs"
-        />
-        <img
-          src="../assets/icons/search.svg"
-          alt=""
-          class="brightness-0 dark:invert absolute w-6 my-auto left-6 top-0 bottom-0"
-        />
-      </div>
-      <div class="filter__container relative w-[90%] h-14 mt-4 mb-8">
-        <div
-          class="filter flex items-center justify-between w-52 h-full rounded pl-6 pr-4"
-        >
-          <p class="filter__text text-xs">Filter by Region</p>
+    <main class="flex flex-col items-center w-[90%] max-w-[1200px] h-full">
+      <div
+        class="flex flex-col items-center justify-center w-full gap-10 mt-6 lg:flex-row lg:mb-8t"
+      >
+        <div class="relative w-full search">
+          <input
+            placeholder="Search for a country..."
+            type="text"
+            class="w-full h-12 pl-16 text-xs lg:text-sm rounded lg:w-[29rem] search__bar"
+          />
           <img
-            src="../assets/icons/down-arrow.svg"
+            src="../assets/icons/search.svg"
             alt=""
-            class="arrow dark:invert w-4"
+            class="absolute top-0 bottom-0 w-6 my-auto brightness-0 dark:invert left-6"
           />
         </div>
-        <ul
-          class="options hidden absolute left-0 w-52 pl-6 rounded list-none space-y-2 my-1 py-4 text-xs"
+        <div
+          class="relative w-full mb-8 lg:mb-0 lg:w-min filter__container h-14"
         >
-          <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-            Africa
-          </li>
-          <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-            America
-          </li>
-          <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-            Asia
-          </li>
-          <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-            Europe
-          </li>
-          <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-            Oceania
-          </li>
-        </ul>
+          <div
+            class="flex items-center justify-between h-full pl-6 pr-4 rounded filter w-52 lg:w-48"
+          >
+            <p class="text-xs filter__text lg:text-sm">Filter by Region</p>
+            <img
+              src="../assets/icons/down-arrow.svg"
+              alt=""
+              class="w-4 lg:w-5 arrow dark:invert"
+            />
+          </div>
+          <ul
+            class="absolute left-0 hidden py-4 pl-6 my-1 space-y-2 text-xs list-none rounded lg:text-sm options w-52 lg:w-48"
+          >
+            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+              Africa
+            </li>
+            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+              America
+            </li>
+            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+              Asia
+            </li>
+            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+              Europe
+            </li>
+            <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
+              Oceania
+            </li>
+          </ul>
+        </div>
       </div>
       <section
-        class="card__container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 w-full max-w-[1200px] place-items-center"
+        class="flex flex-wrap items-center justify-around w-full py-10 lg:justify-between card__container gap-y-10"
       >
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
           </div>
         </div>
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
           </div>
         </div>
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
           </div>
         </div>
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
           </div>
         </div>
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
           </div>
         </div>
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
           </div>
         </div>
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
           </div>
         </div>
         <div
-          class="card rounded-md flex flex-col overflow-hidden w-[95%] max-w-64"
+          class="flex flex-col w-full overflow-hidden rounded-md shrink card lg:w-64 max-w-64 hover:cursor-pointer"
         >
           <img
             src="../assets/imgs/germany.png"
             alt=""
             class="flag w-full aspect-[16/10]"
           />
-          <div class="card__body pt-6 pb-10 pl-6">
-            <h1 class="country__name font-bold text-lg mb-4">Germany</h1>
+          <div class="pt-6 pb-10 pl-6 card__body">
+            <h1 class="mb-4 text-lg font-bold country__name">Germany</h1>
             <ul class="card__info list-none space-y-1.5">
-              <li class="population text-sm">
+              <li class="text-sm population">
                 Population: <span class="data opacity-70">81,770,900</span>
               </li>
-              <li class="region text-sm">
+              <li class="text-sm region">
                 Region: <span class="data opacity-70">Europe</span>
               </li>
-              <li class="capital text-sm">
+              <li class="text-sm capital">
                 Capital: <span class="data opacity-70">Berlin</span>
               </li>
             </ul>
@@ -252,5 +262,122 @@
         </div>
       </section>
     </main>
+    <!--
+    <section class="flex results flex-col w-[90%]">
+      <div
+        class="flex items-center justify-center h-8 gap-2 mt-10 rounded-sm hover:cursor-pointer w-28 back__button"
+      >
+        <img
+          src="../assets/icons/back-arrow.svg"
+          alt=""
+          class="h-5 arrow__back brightness-0 dark:invert"
+        />
+        <p class="text-sm opacity-70">Back</p>
+      </div>
+      <div
+        class="flex flex-col w-full pt-12 lg:py-16 md:flex-row md:items-center country__page md:gap-12 lg:gap-24"
+      >
+        <div class="w-full mt-12 md:m-0 flag">
+          <img
+            src="../assets/imgs/germany.png"
+            alt=""
+            class="w-full flag__image max-w-80 md:max-w-full"
+          />
+        </div>
+        <div
+          class="flex flex-col items-start w-full mt-12 lg:m-0 country__info"
+        >
+          <p class="text-xl font-bold country__name">Germany</p>
+          <div
+            class="flex flex-col items-start w-full gap-12 my-8 text-sm md:text-xs sm:flex-row country__stats md:my-8 lg:my-6"
+          >
+            <ul class="space-y-3 lg:space-y-2 sm:w-[50%]">
+              <li>
+                Native Name:
+                <span class="native__name opacity-70">Deutchland</span>
+              </li>
+              <li>
+                Population:
+                <span class="population opacity-70">80,342,587</span>
+              </li>
+              <li>
+                Region: <span class="stat__region opacity-70">Europe</span>
+              </li>
+              <li>
+                Sub Region:
+                <span class="sub__region opacity-70">Central Europe</span>
+              </li>
+              <li>
+                Capital: <span class="stat__capital opacity-70">Berlin</span>
+              </li>
+            </ul>
+            <ul class="space-y-3 lg:space-y-2 sm:w-[50%]">
+              <li>
+                Top Level Domain: <span class="domain opacity-70">.de</span>
+              </li>
+              <li>
+                Currencies: <span class="currencies opacity-70">Euro</span>
+              </li>
+              <li>
+                Languages: <span class="languages opacity-70">German</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col w-full gap-4 borders lg:flex-row">
+            <p class="w-max text-nowrap lg:text-sm">Border Countries:</p>
+            <div
+              class="flex flex-wrap pb-12 lg:pb-0 border__countries gap-x-2 gap-y-2"
+            >
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+              <div
+                class="flex items-center justify-center px-4 rounded-sm border__country h-7 lg:h-6 lg:max-w-16 min-w-max hover:cursor-pointer"
+              >
+                <p class="text-xs lg:text-[0.6rem] opacity-70">Netherlands</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
   </body>
 </html>
