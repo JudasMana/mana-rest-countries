@@ -78,7 +78,7 @@ class DetailsView {
                 class="flex flex-col items-start w-full mt-12 lg:m-0 country__info"
             >
                 <p class="text-xl font-bold country__name">${
-                  countryData.name.official
+                  countryData.name.common
                 }</p>
                 <div
                 class="flex flex-col items-start w-full gap-12 my-8 text-sm md:text-xs sm:flex-row country__stats md:my-8 lg:my-6"
