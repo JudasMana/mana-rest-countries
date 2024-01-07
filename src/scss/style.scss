@@ -53,6 +53,14 @@ header {
   background-color: $element-color;
 }
 
+.error__message {
+  color: red;
+  position: absolute;
+  bottom: -1.2rem;
+  font-size: 0.7rem;
+  left: 0;
+}
+
 .search__bar {
   background-color: $element-color;
 
@@ -60,6 +68,10 @@ header {
     color: $input-text-color;
     opacity: 0.8;
   }
+}
+
+.input__error {
+  border: 2px solid rgba(255, 0, 0, 0.603);
 }
 
 .filter {
@@ -82,6 +94,10 @@ header {
 
 .options {
   background-color: $element-color;
+
+  .active__option {
+    opacity: 1;
+  }
 }
 
 .card,
@@ -103,4 +119,20 @@ header {
 
 .dark__icon {
   filter: brightness(0) invert(100);
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }

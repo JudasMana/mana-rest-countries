@@ -1,12 +1,52 @@
 import $ from "jquery";
 import lens from "../../../assets/icons/search.svg";
 import downArrow from "../../../assets/icons/down-arrow.svg";
+import spinnerIcon from "../../../assets/icons/spinner.svg";
 
 class HomeView {
   renderHomePage(countries, mode) {
-    $(window).on("load", () => {
-      $("main").append(this._generateHomePageMarkup(countries, mode));
+    window.history.pushState(null, "", "/");
+    scrollTo(0, 0);
+    const _generateHomePageMarkup = this._generateHomePageMarkup.bind(this);
+    return new Promise(function (resolve, _) {
+      $("main").html(_generateHomePageMarkup(countries, mode));
+      resolve();
     });
+  }
+
+  renderCountries(countries) {
+    if (countries.length === 0) {
+      $(".card__container").html(`<p>No coutries found in this region</p>`);
+      return;
+    }
+    $(".card__container").html(this._generateCountryGridMarkup(countries));
+  }
+
+  addCountryHandler(handler) {
+    $(".card__container").on("click", function (e) {
+      const countryCard = e.target.closest(".card");
+      if (!countryCard) return;
+
+      handler(countryCard.dataset.country);
+    });
+  }
+
+  renderSpinner(mode) {
+    const spinner = `
+    <div class="w-full flex justify-center items-center" style="margin-top: 8rem;">
+      <img src="${spinnerIcon}" alt="" class="w-32 brightness-0 icon ${
+      mode === "dark" ? "dark__icon" : ""
+    } spinner">
+    </div>
+    `;
+    $("main").html(spinner);
+  }
+
+  renderError() {
+    $(".search__bar").addClass("input__error");
+
+    const errorMessage = `<p class="error__message">Insert valid country name</p>`;
+    $(".search").append(errorMessage);
   }
 
   _generateCountryGridMarkup(countries) {
@@ -20,13 +60,15 @@ class HomeView {
   _generateCountryMarkup(countryData) {
     const populationFormat = new Intl.NumberFormat("it-IT", {});
     const name =
-      countryData.name.length > 22
-        ? `${countryData.name.slice(0, 22)}...`
-        : countryData.name;
+      countryData.name.common.length > 22
+        ? `${countryData.name.common.slice(0, 22)}...`
+        : countryData.name.common;
 
     return `
-        <div
-        class="flex flex-col w-full overflow-hidden rounded-md card lg:w-64 max-w-64 hover:cursor-pointer">
+        <a
+        class="flex flex-col w-full overflow-hidden rounded-md card lg:w-64 max-w-64 hover:cursor-pointer" data-country="${
+          countryData.name.common
+        }">
         <div class=" w-full overflow-hidden" style="height: 150px;">
             <img
             src="${countryData.flags.png}"
@@ -47,11 +89,15 @@ class HomeView {
             Region: <span class="data opacity-70">${countryData.region}</span>
             </li>
             <li class="text-sm capital">
-            Capital: <span class="data opacity-70">${countryData.capital}</span>
+            Capital: <span class="data opacity-70">${
+              countryData.capital
+                ? countryData.capital.join(", ")
+                : "No capital data found"
+            }</span>
             </li>
         </ul>
         </div>
-    </div>
+    </a>
     `;
   }
 
@@ -61,7 +107,7 @@ class HomeView {
     <div
       class="flex flex-col items-center justify-center w-full gap-10 mt-6 lg:flex-row lg:mb-8t"
     >
-      <div class="relative w-full search">
+      <form class="relative w-full search">
         <input
           placeholder="Search for a country..."
           type="text"
@@ -74,7 +120,7 @@ class HomeView {
             mode === "dark" ? "dark__icon" : ""
           }"
         />
-      </div>
+      </form>
       <div
         class="relative w-full mb-8 lg:mb-0 lg:w-min filter__container h-14"
       >
@@ -95,7 +141,7 @@ class HomeView {
             Africa
           </li>
           <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
-            America
+            Americas
           </li>
           <li class="opacity-70 hover:opacity-100 hover:cursor-pointer">
             Asia
